@@ -29,7 +29,7 @@ jobs:
       - name: Seup MSBUILD
         uses: microsoft/setup-msbuild@v1.0.2
       
-      - name: BuildAPI
+      - name: Build API
         run: msbuild NKHook6-API/NKHook6-API.sln /p:Configuration=Release
 
       - name: Upload build artifacts
@@ -50,7 +50,6 @@ jobs:
           body: ${{ github.event.head_commit.message }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
           
       - name: Upload Release Asset
         id: upload-release-asset 
