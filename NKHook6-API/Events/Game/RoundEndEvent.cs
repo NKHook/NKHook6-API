@@ -1,18 +1,16 @@
-﻿using Assets.Scripts.Simulation;
-
-namespace NKHook6.API.Events._Simulation
+﻿namespace NKHook6.API.Events._Game
 {
     public partial class SimulationEvents
     {
         public class RoundEndEvent : EventBaseCancellable
         {
-            public Simulation simulation;
-            public int roundArrayIndex;
+            public Game game;
+            public int round;
 
-            public RoundEndEvent(ref Simulation simulation, ref int round) : base("RoundEndEvent")
+            public RoundEndEvent(Game game, int round) : base("RoundEndEvent")
             {
-                this.simulation = simulation;
-                this.roundArrayIndex = round;
+                this.game = game;
+                this.round = round;
             }
         }
     }

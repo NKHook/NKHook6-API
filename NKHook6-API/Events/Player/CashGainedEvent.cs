@@ -1,7 +1,7 @@
 ﻿using NKHook6.API.Towers;
 using System.Runtime.InteropServices;
 
-namespace NKHook6.API.Events._Simulation
+namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{

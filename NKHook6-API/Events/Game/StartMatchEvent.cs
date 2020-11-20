@@ -1,6 +1,6 @@
 namespace NKHook6.API.Events._Game
 {
-	public partial class InGameEvents
+	public partial class GameEvents
 	{
 		public class StartMatchEvent : EventBase
 		{
