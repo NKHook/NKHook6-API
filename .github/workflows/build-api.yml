@@ -1,0 +1,63 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build API
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup MSBUILD
+        uses: microsoft/setup-msbuild@v1.0.2
+      
+      - name: Build API
+        run: msbuild NKHook6-API/NKHook6-API.sln /p:Configuration=Release
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: NKHook6-API-Build
+          path: NKHook6-API\NKHook6-API\NKHook6-API\bin\Release\NKHook6-API.dll
+      
+      - name: Create a Release
+        uses: actions/create-release@v1.1.4
+        id: create_release
+        with:
+          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+          tag_name: ${{ github.run_number }}
+          # The name of the release. For example, `Release v1.0.1`
+          release_name: Build ${{ github.run_number }}
+          #Commit message as description
+          body: ${{ github.event.head_commit.message }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: NKHook6-API\NKHook6-API\NKHook6-API\bin\Release\NKHook6-API.dll
+          asset_name: NKHook6-API.dll
+          asset_content_type: application/dll
