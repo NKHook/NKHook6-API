@@ -25,43 +25,40 @@ namespace NKHook6.API.Events
             createEvent("KeyHeldEvent"); //Updated
             createEvent("KeyReleaseEvent"); //Updated
 
-            //Game
-            createEvent("MainMenuLoadedEvent"); //Updated
-
             //Bloons
             createEvent("BloonCreatedEvent"); //Updated
             createEvent("BloonDamagedEvent"); //Updated
             createEvent("BloonLeakedEvent"); //Updated
             createEvent("BloonDeletedEvent"); //Updated
-            //createEvent("BloonMoveEvent"); //Not possible yet, gotta do more investigation
+            createEvent("BloonMoveEvent"); //Not possible yet, gotta do more investigation
             createEvent("BloonRotateEvent"); //Updated
-            //createEvent("BloonModelChangedEvent"); //Kinda useless
 
             //Towers
             createEvent("TowerCreatedEvent"); //Updated
             createEvent("TowerDeletedEvent"); //Updated
             createEvent("TowerSoldEvent"); //Updated
-            //createEvent("TowerModelChangedEvent"); //Kinda useless
             createEvent("TowerSelectedEvent"); //Updated
             createEvent("TowerDeselectedEvent"); //Updated
             createEvent("TowerUpgradeEvent"); //Updated
 
-            //Simulation
-            createEvent("RoundStartEvent"); //Updated
-            createEvent("RoundEndEvent"); //Updated
-            createEvent("DefeatedEvent"); //Updated
+            //Player
             createEvent("CashChangedEvent"); //Updated
             createEvent("CashLostEvent"); //Updated
             createEvent("CashGainedEvent"); //Updated
+            createEvent("HealthChangedEvent");
+            createEvent("HealthLostEvent");
+            createEvent("HealthGainedEvent");
 
             //Weapons
             createEvent("WeaponCreatedEvent"); //Updated
             createEvent("WeaponDeletedEvent"); //Updated
-            //createEvent("WeaponModelChangedEvent"); //Kinda useless
 
-            //InGame
+            //Game events
             createEvent("VictoryEvent"); //Updated
-            createEvent("StartMatchEvent"); // new
+            createEvent("StartMatchEvent");
+            createEvent("RoundStartEvent"); //Updated
+            createEvent("RoundEndEvent"); //Updated
+            createEvent("DefeatedEvent"); //Updated
 
             //Projectiles
             createEvent("ProjectileCreatedEvent");
@@ -77,24 +74,10 @@ namespace NKHook6.API.Events
 
         public void createEvent(string eventName)
         {
-            try
-            {
-                register(eventName, new List<MethodInfo>());
-                //Logger.Log("Created event: " + eventName);
-            }
-            catch (Exception ex)
-            {
-                Logger.Log("Failed to create event: " + eventName);
-                Logger.Log(ex.Message);
-                Logger.Log(ex.StackTrace);
-            }
+            register(eventName, new List<MethodInfo>());
         }
 
-        /*/// <summary>
-        /// Dictionary of eventNames with their callbacks
-        /// </summary>
-        Dictionary<string, List<MethodInfo>> theRegistry = new Dictionary<string, List<MethodInfo>>();*/
-
+        
         public void listen(Type toSubscribe)
         {
             foreach(MethodInfo method in toSubscribe.GetMethods())
@@ -112,13 +95,12 @@ namespace NKHook6.API.Events
                                 if (currentEventName == eventAttrib.eventName)
                                 {
                                     getItem(currentEventName).Add(method);
-                                    //Logger.Log("Registered event \"" + eventAttrib.eventName + "\"");
                                     registered = true;
                                     continue;
                                 }
                             }
-                            if(!registered)
-                                Logger.Log("Unknown event \"" + eventAttrib.eventName + "\"");
+                            if (!registered)
+                                throw new UnknownEventException(eventAttrib.eventName);
                         }
                     }
                 }

@@ -56,6 +56,9 @@
     <Compile Include="Events\Game\StartMatchEvent.cs" />
     <Compile Include="Events\Game\VictoryEvent.cs" />
     <Compile Include="Events\KeyEvent.cs" />
+    <Compile Include="Events\Player\HealthGainedEvent.cs" />
+    <Compile Include="Events\Player\HealthLostEvent.cs" />
+    <Compile Include="Events\Player\HealthChangedEvent.cs" />
     <Compile Include="Events\Projectile\CreatedEvent.cs" />
     <Compile Include="Events\Projectile\DeletedEvent.cs" />
     <Compile Include="Events\Player\CashChangedEvent.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="Events\Towers\SelectedEvent.cs" />
     <Compile Include="Events\Towers\SoldEvent.cs" />
     <Compile Include="Events\Towers\UpgradeEvent.cs" />
+    <Compile Include="Events\UnknownEventException.cs" />
     <Compile Include="Events\UpdateEvent.cs" />
     <Compile Include="Events\Weapons\CreatedEvent.cs" />
     <Compile Include="Events\Weapons\DeletedEvent.cs" />
@@ -79,8 +83,6 @@
     <Compile Include="Towers\Projectiles\Projectile.cs" />
     <Compile Include="Towers\Tower.cs" />
     <Compile Include="Towers\Weapons\Weapon.cs" />
-    <Compile Include="Upgrades\UpgradeBuilder.cs" />
-    <Compile Include="Upgrades\UpgradeRegistry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
