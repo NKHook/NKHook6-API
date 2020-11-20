@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Simulation.Towers;
+﻿using NKHook6.API.Towers;
 
-namespace NKHook6.Api.Events._Towers
+namespace NKHook6.API.Events._Towers
 {
 	public partial class TowerEvents
 	{
@@ -8,7 +8,7 @@ namespace NKHook6.Api.Events._Towers
 		{
 			public Tower tower;
 
-			public DeselectedEvent(ref Tower tower) : base("TowerDeselectedEvent")
+			public DeselectedEvent(Tower tower) : base("TowerDeselectedEvent")
 			{
 				this.tower = tower;
 			}

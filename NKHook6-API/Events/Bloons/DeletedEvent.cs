@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Simulation.Bloons;
+﻿using NKHook6.API.Bloons;
 
-namespace NKHook6.Api.Events._Bloons
+namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
@@ -8,7 +8,7 @@ namespace NKHook6.Api.Events._Bloons
         {
             public Bloon bloon;
 
-            public DeletedEvent(ref Bloon bloon) : base("BloonDeletedEvent")
+            public DeletedEvent(Bloon bloon) : base("BloonDeletedEvent")
             {
                 this.bloon = bloon;
             }

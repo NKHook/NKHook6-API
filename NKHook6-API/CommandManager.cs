@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NKHook6.Api
+namespace NKHook6.API
 {
     public class CommandManager
     {

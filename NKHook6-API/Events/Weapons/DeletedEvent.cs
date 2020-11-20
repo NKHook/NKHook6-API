@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Simulation.Towers.Weapons;
+﻿using NKHook6.API.Towers.Weapons;
 
-namespace NKHook6.Api.Events._Weapons
+namespace NKHook6.API.Events._Weapons
 {
 	public partial class WeaponEvents
 	{
@@ -8,7 +8,7 @@ namespace NKHook6.Api.Events._Weapons
 		{
 			public Weapon weapon;
 
-			public DeletedEvent(ref Weapon weapon) : base("WeaponDeletedEvent")
+			public DeletedEvent(Weapon weapon) : base("WeaponDeletedEvent")
 			{
 				this.weapon = weapon;
 			}

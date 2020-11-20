@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Simulation.Bloons;
+﻿using NKHook6.API.Bloons;
 
-namespace NKHook6.Api.Events._Bloons
+namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
@@ -10,7 +10,7 @@ namespace NKHook6.Api.Events._Bloons
             public float newPosition;
             public float oldPosition;
 
-            public MoveEvent(ref Bloon bloon, ref float newPosition, ref float oldPosition) : base("BloonMoveEvent")
+            public MoveEvent(Bloon bloon, float newPosition, float oldPosition) : base("BloonMoveEvent")
             {
                 this.bloon = bloon;
                 this.newPosition = newPosition;

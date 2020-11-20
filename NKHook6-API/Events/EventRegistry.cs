@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.API.Events
 {
     public class EventRegistry : Registry<List<MethodInfo>>
     {

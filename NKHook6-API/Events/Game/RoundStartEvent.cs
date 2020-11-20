@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Simulation;
 
-namespace NKHook6.Api.Events._Simulation
+namespace NKHook6.API.Events._Simulation
 {
     public partial class SimulationEvents
     {

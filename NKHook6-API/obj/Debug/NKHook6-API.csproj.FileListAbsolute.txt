@@ -1,2 +1,0 @@
-B:\GitHub\NKHook6-API\NKHook6-API\obj\Debug\NKHook6-API.csprojAssemblyReference.cache
-B:\GitHub\NKHook6-API\NKHook6-API\obj\Debug\NKHook6-API.csproj.CoreCompileInputs.cache

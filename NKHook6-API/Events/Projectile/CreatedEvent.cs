@@ -1,22 +1,16 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Simulation.Objects;
-using Assets.Scripts.Simulation.Towers.Projectiles;
+﻿using NKHook6.API.Towers.Projectiles;
 
-namespace NKHook6.Api.Events._Projectile
+namespace NKHook6.API.Events._Projectile
 {
 	public partial class ProjectileEvents
 	{
 		public class CreatedEvent : EventBaseCancellable
 		{
-			public Projectile instance;
-			public Entity entity;
-			public Model model;
+			public Projectile projectile;
 
-			public CreatedEvent(Projectile __instance, Entity target, Model modelToUse) : base("ProjectileCreatedEvent")
+			public CreatedEvent(Projectile projectile) : base("ProjectileCreatedEvent")
 			{
-				this.instance = __instance;
-				this.entity = target;
-				this.model = modelToUse;
+				this.projectile = projectile;
 			}
 		}
 	}

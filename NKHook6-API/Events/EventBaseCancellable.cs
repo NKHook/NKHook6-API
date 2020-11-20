@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace NKHook6.Api.Events
+namespace NKHook6.API.Events
 {
     public class EventBaseCancellable : EventBase
     {

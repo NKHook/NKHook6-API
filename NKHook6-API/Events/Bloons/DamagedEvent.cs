@@ -1,7 +1,8 @@
 ﻿using NKHook6.API.Bloons;
 using NKHook6.API.Towers;
+using NKHook6.API.Towers.Projectiles;
 
-namespace NKHook6.Api.Events._Bloons
+namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
@@ -20,12 +21,12 @@ namespace NKHook6.Api.Events._Bloons
             public bool ignoreNonTargetables { get; set; }
             public bool blockSpawnChildren { get; set; }
 
-            public DamagedEvent(ref Bloon __instance, ref float totalAmount, ref Il2CppStringArray types, ref Projectile projectile,
-            ref bool distributeToChildren, ref bool overrideDistributeBlocker, ref bool createEffect, ref Tower tower,
-            ref bool canDestroyProjectile, ref Il2CppStringArray ignoreImmunityForBloonTypes, ref bool ignoreNonTargetable,
-            ref bool blockSpawnChildren) : base("BloonDamagedEvent")
+            public DamagedEvent(Bloon bloon, float totalAmount, string[] types, Projectile projectile,
+            bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, Tower tower,
+            bool canDestroyProjectile, string[] ignoreImmunityForBloonTypes, bool ignoreNonTargetable,
+            bool blockSpawnChildren) : base("BloonDamagedEvent")
             {
-                this.bloon = __instance;
+                this.bloon = bloon;
                 this.damageTaken = totalAmount;
                 this.damageTypes = types;
                 this.projectile = projectile;

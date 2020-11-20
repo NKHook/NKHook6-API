@@ -1,16 +1,16 @@
-﻿using Assets.Scripts.Simulation.Towers.Projectiles;
+﻿using NKHook6.API.Towers.Projectiles;
 
-namespace NKHook6.Api.Events._Projectile
+namespace NKHook6.API.Events._Projectile
 {
 	public partial class ProjectileEvents
 	{
 		public class DeletedEvent : EventBaseCancellable
 		{
-			public Projectile instance;
+			public Projectile projectile;
 
-			public DeletedEvent(Projectile __instance) : base("ProjectileDeletedEvent")
+			public DeletedEvent(Projectile projectile) : base("ProjectileDeletedEvent")
 			{
-				this.instance = __instance;
+				this.projectile = projectile;
 			}
 		}
 	}
