@@ -85,4 +85,8 @@
     <Compile Include="Towers\Weapons\Weapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>mkdir "$(SolutionDir)..\build\"
+copy "$(TargetPath)" "$(SolutionDir)..\build\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
