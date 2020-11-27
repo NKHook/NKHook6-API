@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NKHook6.API.Towers.Weapons
 {
-    public interface Weapon
+    public abstract class Weapon
     {
     }
 }

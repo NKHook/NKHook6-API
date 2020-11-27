@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NKHook6.API.Bloons
+namespace NKHook6.API.Towers
 {
-    public abstract class Bloon
+    public interface ITowerEntity
     {
     }
 }
