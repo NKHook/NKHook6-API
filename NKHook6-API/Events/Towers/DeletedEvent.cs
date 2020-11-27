@@ -6,10 +6,10 @@ namespace NKHook6.API.Events._Towers
     {
         public class DeletedEvent : EventBase
         {
-            public Tower instance;
-            public DeletedEvent(ref Tower __instance) : base("TowerDeletedEvent")
+            public ITowerEntity tower;
+            public DeletedEvent(ITowerEntity tower) : base("TowerDeletedEvent")
             {
-                this.instance = __instance;
+                this.tower = tower;
             }
         }
     }

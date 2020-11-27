@@ -6,9 +6,9 @@ namespace NKHook6.API.Events._Towers
 	{
 		public class DeselectedEvent : EventBaseCancellable
 		{
-			public Tower tower;
+			public ITowerEntity tower;
 
-			public DeselectedEvent(Tower tower) : base("TowerDeselectedEvent")
+			public DeselectedEvent(ITowerEntity tower) : base("TowerDeselectedEvent")
 			{
 				this.tower = tower;
 			}

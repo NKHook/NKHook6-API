@@ -6,10 +6,10 @@ namespace NKHook6.API.Events._Towers
     {
         public class SoldEvent : EventBaseCancellable
         {
-            public Tower tower;
+            public ITowerEntity tower;
             public float sellAmount;
 
-            public SoldEvent(Tower tower, float sellAmount) : base("TowerSoldEvent")
+            public SoldEvent(ITowerEntity tower, float sellAmount) : base("TowerSoldEvent")
             {
                 this.tower = tower;
                 this.sellAmount = sellAmount;

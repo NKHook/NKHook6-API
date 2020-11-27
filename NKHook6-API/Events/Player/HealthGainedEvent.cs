@@ -7,7 +7,7 @@ namespace NKHook6.API.Events._Player
 	{
 		public class HealthGainedEvent : HealthChangedEvent
 		{
-			public HealthGainedEvent(Game game, double oldCash, double newCash, [Optional] Tower tower) : base(game, oldCash, newCash, tower) { }
+			public HealthGainedEvent(Game game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
 		}
 	}
 }

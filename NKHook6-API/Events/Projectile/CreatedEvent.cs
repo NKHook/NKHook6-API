@@ -6,9 +6,9 @@ namespace NKHook6.API.Events._Projectile
 	{
 		public class CreatedEvent : EventBaseCancellable
 		{
-			public Projectile projectile;
+			public IProjectile projectile;
 
-			public CreatedEvent(Projectile projectile) : base("ProjectileCreatedEvent")
+			public CreatedEvent(IProjectile projectile) : base("ProjectileCreatedEvent")
 			{
 				this.projectile = projectile;
 			}

@@ -10,14 +10,12 @@ namespace NKHook6.API.Events._Player
 			public Game game;
 			public double oldCash;
 			public double newCash;
-			public Tower tower;
 
-			public CashChangedEvent(Game game, double oldCash, double newCash, [Optional] Tower tower) : base("CashChangedEvent")
+			public CashChangedEvent(Game game, double oldCash, double newCash) : base("CashChangedEvent")
 			{
 				this.game = game;
 				this.oldCash = oldCash;
 				this.newCash = newCash;
-				this.tower = tower;
 			}
 		}
 	}

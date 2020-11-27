@@ -80,9 +80,12 @@
     <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry.cs" />
-    <Compile Include="Towers\Projectiles\Projectile.cs" />
-    <Compile Include="Towers\Tower.cs" />
-    <Compile Include="Towers\Weapons\Weapon.cs" />
+    <Compile Include="Towers\ITowerEntity.cs" />
+    <Compile Include="Towers\Projectiles\IProjectileEntity.cs" />
+    <Compile Include="Towers\Projectiles\IProjectile.cs" />
+    <Compile Include="Towers\ITower.cs" />
+    <Compile Include="Towers\Upgrades\IUpgrade.cs" />
+    <Compile Include="Towers\Weapons\IWeapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

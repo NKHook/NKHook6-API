@@ -6,8 +6,8 @@ namespace NKHook6.API.Events._Towers
 	{
 		public class UpgradeEvent : EventBaseCancellable
 		{
-			public Tower tower;
-			public UpgradeEvent(Tower tower) : base("TowerUpgradeEvent")
+			public ITowerEntity tower;
+			public UpgradeEvent(ITowerEntity tower) : base("TowerUpgradeEvent")
 			{
 				this.tower = tower;
 			}

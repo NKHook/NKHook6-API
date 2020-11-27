@@ -11,18 +11,18 @@ namespace NKHook6.API.Events._Bloons
             public Bloon bloon;
             public float damageTaken { get; set; }
             public string[] damageTypes { get; set; }
-            public Projectile projectile { get; set; }
+            public IProjectileEntity projectile { get; set; }
             public bool distrubuteToChildren { get; set; }
             public bool overrideDistributeBlocker { get; set; }
             public bool createEffect { get; set; }
-            public Tower tower { get; set; }
+            public ITowerEntity tower { get; set; }
             public bool canDestroyProjectile { get; set; }
             public string[] ignoreImmunityForBloonTypes { get; set; }
             public bool ignoreNonTargetables { get; set; }
             public bool blockSpawnChildren { get; set; }
 
-            public DamagedEvent(Bloon bloon, float totalAmount, string[] types, Projectile projectile,
-            bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, Tower tower,
+            public DamagedEvent(Bloon bloon, float totalAmount, string[] types, IProjectileEntity projectile,
+            bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, ITowerEntity tower,
             bool canDestroyProjectile, string[] ignoreImmunityForBloonTypes, bool ignoreNonTargetable,
             bool blockSpawnChildren) : base("BloonDamagedEvent")
             {
