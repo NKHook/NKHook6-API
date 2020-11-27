@@ -1,4 +1,5 @@
-﻿using NKHook6.API.Towers;
+﻿using NKHook6.API.Game;
+using NKHook6.API.Towers;
 using System.Runtime.InteropServices;
 
 namespace NKHook6.API.Events._Player
