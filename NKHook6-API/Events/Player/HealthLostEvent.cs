@@ -1,4 +1,5 @@
-﻿using NKHook6.API.Towers;
+﻿using NKHook6.API.Game;
+using NKHook6.API.Towers;
 using System.Runtime.InteropServices;
 
 namespace NKHook6.API.Events._Player
@@ -7,7 +8,7 @@ namespace NKHook6.API.Events._Player
 	{
 		public class HealthLostEvent : HealthChangedEvent
 		{
-			public HealthLostEvent(Game game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
+			public HealthLostEvent(IGame game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
 		}
 	}
 }

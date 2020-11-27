@@ -1,13 +1,15 @@
-﻿namespace NKHook6.API.Events._Game
+﻿using NKHook6.API.Game;
+
+namespace NKHook6.API.Events._Game
 {
     public partial class GameEvents
     {
         public class RoundStartEvent : EventBaseCancellable
         {
-            public Game game;
+            public IGame game;
             public int round;
 
-            public RoundStartEvent(Game game, int round) : base("RoundStartEvent")
+            public RoundStartEvent(IGame game, int round) : base("RoundStartEvent")
             {
                 this.game = game;
                 this.round = round;

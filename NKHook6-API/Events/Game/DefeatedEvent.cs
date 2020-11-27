@@ -1,11 +1,13 @@
-﻿namespace NKHook6.API.Events._Game
+﻿using NKHook6.API.Game;
+
+namespace NKHook6.API.Events._Game
 {
 	public partial class GameEvents
 	{
 		public class DefeatedEvent : EventBaseCancellable
 		{
-			public Game game;
-			public DefeatedEvent(Game game) : base("DefeatedEvent")
+			public IGame game;
+			public DefeatedEvent(IGame game) : base("DefeatedEvent")
 			{
 				this.game = game;
 			}

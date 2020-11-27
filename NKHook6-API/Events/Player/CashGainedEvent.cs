@@ -1,4 +1,5 @@
-﻿using NKHook6.API.Towers;
+﻿using NKHook6.API.Game;
+using NKHook6.API.Towers;
 using System.Runtime.InteropServices;
 
 namespace NKHook6.API.Events._Player
@@ -7,7 +8,7 @@ namespace NKHook6.API.Events._Player
 	{
 		public class CashGainedEvent : CashChangedEvent
 		{
-			public CashGainedEvent(Game game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
+			public CashGainedEvent(IGame game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
 		}
 	}
 }
