@@ -18,12 +18,12 @@ namespace NKHook6.API
         /// Registers a new item into the target registry
         /// </summary>
         /// <param name="item">Item to register</param>
-        public virtual void register(string ID, T item)
+        public virtual Registry<T> register(string ID, T item)
         {
             if (!registryItems.ContainsKey(ID))
             {
                 this.registryItems.Add(ID, item);
-                return;
+                return this;
             }
             throw new RegistryIDTakenException(ID);
         }
@@ -32,13 +32,13 @@ namespace NKHook6.API
         /// Unregisters something from the registry. WARNING: Probably super duper unsafe for certain things
         /// </summary>
         /// <param name="ID"></param>
-        public virtual void unregister(string ID)
+        public virtual Registry<T> unregister(string ID)
         {
             foreach(string key in registryItems.Keys)
             {
                 if(key == ID)
                 {
-                    return;
+                    return this;
                 }
             }
             throw new RegistryIDNotFoundException(ID);
@@ -54,7 +54,7 @@ namespace NKHook6.API
         {
             return registryItems[ID];
         }
-        
+
         /// <summary>
         /// Gets all items in the registry
         /// </summary>

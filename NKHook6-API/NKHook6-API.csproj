@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bloons\IBloonEntity.cs" />
     <Compile Include="Bloons\IBloon.cs" />
+    <Compile Include="Bloons\IBloonEntity.cs" />
     <Compile Include="CommandManager.cs" />
     <Compile Include="Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Events\Bloons\DamagedEvent.cs" />
@@ -80,13 +82,15 @@
     <Compile Include="Events\Weapons\DeletedEvent.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registry.cs" />
+    <Compile Include="Registry\BloonRegistry.cs" />
     <Compile Include="Towers\ITowerEntity.cs" />
     <Compile Include="Towers\Projectiles\IProjectileEntity.cs" />
     <Compile Include="Towers\Projectiles\IProjectile.cs" />
     <Compile Include="Towers\ITower.cs" />
     <Compile Include="Towers\Upgrades\IUpgrade.cs" />
     <Compile Include="Towers\Weapons\IWeapon.cs" />
+    <Compile Include="Registry\Registry.cs" />
+    <Compile Include="Registry\TowerRegistry.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

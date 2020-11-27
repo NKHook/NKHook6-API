@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NKHook6.API.Bloons
 {
-    public interface IBloon
+    public interface IBloonEntity
     {
     }
 }
