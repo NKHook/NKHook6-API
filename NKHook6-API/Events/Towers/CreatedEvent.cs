@@ -6,9 +6,9 @@ namespace NKHook6.API.Events._Towers
     {
         public class CreatedEvent : EventBase
         {
-            public Tower tower;
+            public ITowerEntity tower;
 
-            public CreatedEvent(Tower tower) : base("TowerCreatedEvent")
+            public CreatedEvent(ITowerEntity tower) : base("TowerCreatedEvent")
             {
                 this.tower = tower;
             }

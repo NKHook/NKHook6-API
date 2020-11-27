@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NKHook6.API.Towers.Upgrades
+namespace NKHook6.API.Towers.Weapons
 {
-    public interface Upgrade
+    public interface IWeapon
     {
     }
 }

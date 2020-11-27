@@ -6,9 +6,9 @@ namespace NKHook6.API.Events._Weapons
 	{
 		public class DeletedEvent : EventBaseCancellable
 		{
-			public Weapon weapon;
+			public IWeapon weapon;
 
-			public DeletedEvent(Weapon weapon) : base("WeaponDeletedEvent")
+			public DeletedEvent(IWeapon weapon) : base("WeaponDeletedEvent")
 			{
 				this.weapon = weapon;
 			}
