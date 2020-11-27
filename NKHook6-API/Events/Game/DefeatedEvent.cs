@@ -4,8 +4,8 @@
 	{
 		public class DefeatedEvent : EventBaseCancellable
 		{
-			public Game game;
-			public DefeatedEvent(Game game) : base("DefeatedEvent")
+			public IGame game;
+			public DefeatedEvent(IGame game) : base("DefeatedEvent")
 			{
 				this.game = game;
 			}

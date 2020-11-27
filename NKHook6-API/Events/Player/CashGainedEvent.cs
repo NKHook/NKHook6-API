@@ -7,7 +7,7 @@ namespace NKHook6.API.Events._Player
 	{
 		public class CashGainedEvent : CashChangedEvent
 		{
-			public CashGainedEvent(Game game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
+			public CashGainedEvent(IGame game, double oldCash, double newCash) : base(game, oldCash, newCash) { }
 		}
 	}
 }
