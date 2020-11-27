@@ -26,5 +26,9 @@
         /// </summary>
         /// <param name="value">The value to set the health</param>
         void setHealth(double value);
+        /// <summary>
+        /// End the game and have all players see the lose screen
+        /// </summary>
+        void lose();
     }
 }
