@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bloons\Bloon.cs" />
+    <Compile Include="Bloons\IBloonEntity.cs" />
+    <Compile Include="Bloons\IBloon.cs" />
     <Compile Include="CommandManager.cs" />
     <Compile Include="Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Events\Bloons\DamagedEvent.cs" />

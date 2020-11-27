@@ -6,9 +6,9 @@ namespace NKHook6.API.Events._Bloons
     {
         public class LeakedEvent : EventBaseCancellable
         {
-            public Bloon bloon;
+            public IBloonEntity bloon;
 
-            public LeakedEvent(Bloon bloon) : base("BloonLeakedEvent")
+            public LeakedEvent(IBloonEntity bloon) : base("BloonLeakedEvent")
             {
                 this.bloon = bloon;
             }

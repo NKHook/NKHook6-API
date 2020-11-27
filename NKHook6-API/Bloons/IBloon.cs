@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NKHook6.API.Bloons
 {
-    public abstract class Bloon
+    public interface IBloonEntity
     {
     }
 }

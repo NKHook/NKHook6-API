@@ -6,10 +6,10 @@ namespace NKHook6.API.Events._Bloons
     {
         public class RotateEvent : EventBaseCancellable
         {
-            public Bloon bloon;
+            public IBloonEntity bloon;
             public float rotation;
 
-            public RotateEvent(ref Bloon bloon, ref float rotation) : base("BloonRotateEvent")
+            public RotateEvent(IBloonEntity bloon, float rotation) : base("BloonRotateEvent")
             {
                 this.bloon = bloon;
                 this.rotation = rotation;
