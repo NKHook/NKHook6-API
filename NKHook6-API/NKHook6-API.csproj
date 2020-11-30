@@ -79,7 +79,7 @@
     <Compile Include="Events\UpdateEvent.cs" />
     <Compile Include="Events\Weapons\CreatedEvent.cs" />
     <Compile Include="Events\Weapons\DeletedEvent.cs" />
-    <Compile Include="Game\IGame.cs" />
+    <Compile Include="Game\IGameInstance.cs" />
     <Compile Include="Game\IPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry\BloonRegistry.cs" />

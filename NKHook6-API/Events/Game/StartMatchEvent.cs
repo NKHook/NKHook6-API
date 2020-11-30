@@ -6,10 +6,10 @@ namespace NKHook6.API.Events._Game
 	{
 		public class StartMatchEvent : EventBase
 		{
-			public IGame game;
+			public IGameInstance game;
 			public bool isFromSave;
 
-			public StartMatchEvent(IGame game, bool isFromSave) : base("StartMatchEvent")
+			public StartMatchEvent(IGameInstance game, bool isFromSave) : base("StartMatchEvent")
 			{
 				this.game = game;
 				this.isFromSave = isFromSave;

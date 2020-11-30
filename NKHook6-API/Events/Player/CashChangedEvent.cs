@@ -8,11 +8,11 @@ namespace NKHook6.API.Events._Player
 	{
 		public class CashChangedEvent : EventBaseCancellable
 		{
-			public IGame game;
+			public IGameInstance game;
 			public double oldCash;
 			public double newCash;
 
-			public CashChangedEvent(IGame game, double oldCash, double newCash) : base("CashChangedEvent")
+			public CashChangedEvent(IGameInstance game, double oldCash, double newCash) : base("CashChangedEvent")
 			{
 				this.game = game;
 				this.oldCash = oldCash;

@@ -3,7 +3,7 @@
     /// <summary>
     /// The game instance
     /// </summary>
-    public interface IGame
+    public interface IGameInstance
     {
         /// <summary>
         /// Get the player
