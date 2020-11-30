@@ -6,8 +6,8 @@ namespace NKHook6.API.Events._Game
 	{
 		public class VictoryEvent : EventBaseCancellable
 		{
-			public IGame game;
-			public VictoryEvent(IGame game) : base("VictoryEvent")
+			public IGameInstance game;
+			public VictoryEvent(IGameInstance game) : base("VictoryEvent")
 			{
 				this.game = game;
 			}

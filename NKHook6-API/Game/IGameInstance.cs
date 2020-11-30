@@ -1,9 +1,11 @@
-﻿namespace NKHook6.API.Game
+﻿using NKHook6.API.Game.Map;
+
+namespace NKHook6.API.Game
 {
     /// <summary>
     /// The game instance
     /// </summary>
-    public interface IGame
+    public interface IGameInstance
     {
         /// <summary>
         /// Get the player
@@ -30,5 +32,11 @@
         /// End the game and have all players see the lose screen
         /// </summary>
         void lose();
+
+        /// <summary>
+        /// Gets the map of the game instance
+        /// </summary>
+        /// <remarks>The map</remarks>
+        IMap getMap();
     }
 }

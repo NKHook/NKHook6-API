@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Bloons\IBloon.cs" />
     <Compile Include="Bloons\IBloonEntity.cs" />
-    <Compile Include="CommandManager.cs" />
     <Compile Include="Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Events\Bloons\DamagedEvent.cs" />
     <Compile Include="Events\Bloons\DeletedEvent.cs" />
@@ -82,7 +81,11 @@
     <Compile Include="Events\Weapons\DeletedEvent.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Game\IGame.cs" />
+    <Compile Include="Game\IGameInstance.cs" />
     <Compile Include="Game\IPlayer.cs" />
+    <Compile Include="Game\Map\IMap.cs" />
+    <Compile Include="Game\Map\IMapObject.cs" />
+    <Compile Include="Game\Map\IPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry\BloonRegistry.cs" />
     <Compile Include="Towers\ITowerEntity.cs" />

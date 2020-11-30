@@ -6,10 +6,10 @@ namespace NKHook6.API.Events._Game
     {
         public class RoundEndEvent : EventBaseCancellable
         {
-            public IGame game;
+            public IGameInstance game;
             public int round;
 
-            public RoundEndEvent(IGame game, int round) : base("RoundEndEvent")
+            public RoundEndEvent(IGameInstance game, int round) : base("RoundEndEvent")
             {
                 this.game = game;
                 this.round = round;
