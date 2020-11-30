@@ -9,7 +9,6 @@
         <e p="IBloon.cs" t="Include" />
         <e p="IBloonEntity.cs" t="Include" />
       </e>
-      <e p="CommandManager.cs" t="Include" />
       <e p="Events" t="Include">
         <e p="Bloons" t="Include">
           <e p="CreatedEvent.cs" t="Include" />
@@ -60,8 +59,13 @@
       </e>
       <e p="Extensions.cs" t="Include" />
       <e p="Game" t="Include">
-        <e p="IGame.cs" t="Include" />
+        <e p="IGameInstance.cs" t="Include" />
         <e p="IPlayer.cs" t="Include" />
+        <e p="Map" t="Include">
+          <e p="IMap.cs" t="Include" />
+          <e p="IMapObject.cs" t="Include" />
+          <e p="IPath.cs" t="Include" />
+        </e>
       </e>
       <e p="NKHook6-API.csproj" t="IncludeRecursive" />
       <e p="NKHook6-API.sln" t="IncludeFlat" />
