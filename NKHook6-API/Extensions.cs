@@ -5,9 +5,28 @@ using System.Linq;
 
 namespace NKHook6.API {
     public static class Extensions {
-
         //IEnumerable Extensions
-        public static IEnumerable<TSource> allThatApply<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> condition) where TSource : class {
+
+        private static void exampleOfIEnumerableExtensions() {
+            var s = new [] { "NoSpace", "1Space ", "NoSpace", "2Spaces  "};
+            s.allocAdd("5Spaces     ").allThatApply(i => { return i.Contains(" "); }).@do( i => {Console.WriteLine($"The string \"{i}\" has been chosen by the predicate.");});
+
+            /*Console Output
+             * The string "1Space"  has been chosen by the predicate.
+             * The string "2Spaces"   has been chosen by the predicate.
+             * The string "5Spaces"      has been chosen by the predicate.
+             */
+        }
+
+        /// <summary>private
+        /// Gets all members of an IEnumerable that meet a condition.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="condition"></param>
+        /// <typeparam name="TSource"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<TSource> allThatApply<TSource>(this IEnumerable<TSource> source,
+            Func<TSource, bool> condition) where TSource : class {
             IEnumerator enumerator = source.GetEnumerator();
             while (enumerator.MoveNext())
                 if (condition(enumerator.Current as TSource))
@@ -20,7 +39,8 @@ namespace NKHook6.API {
         /// <param name="source"></param>
         /// <param name="action"></param>
         /// <typeparam name="TSource"></typeparam>
-        public static void @do<TSource>(this IEnumerable<TSource> source, Action<TSource> action) where TSource : class {
+        public static void @do<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
+            where TSource : class {
             IEnumerator enumerator = source.GetEnumerator();
             while (enumerator.MoveNext())
                 action(enumerator.Current as TSource);
@@ -33,7 +53,8 @@ namespace NKHook6.API {
         /// <param name="predicate"></param>
         /// <param name="action"></param>
         /// <typeparam name="TSource"></typeparam>
-        public static void doIf<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate, Action<TSource> action) where TSource : class {
+        public static void doIf<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate,
+            Action<TSource> action) where TSource : class {
             IEnumerator enumerator = source.GetEnumerator();
             while (enumerator.MoveNext())
                 if (predicate(enumerator.Current as TSource))
@@ -47,9 +68,10 @@ namespace NKHook6.API {
         /// <param name="addition"></param>
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
-        public static IEnumerable allocAdd<TSource>(this IEnumerable<TSource> source, TSource addition) {
+        public static IEnumerable<TSource> allocAdd<TSource>(this IEnumerable<TSource> source, TSource addition) {
             foreach (var t in source)
                 yield return t;
+
             yield return addition;
         }
     }
