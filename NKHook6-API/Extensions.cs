@@ -48,9 +48,8 @@ namespace NKHook6.API {
         /// <typeparam name="TSource"></typeparam>
         /// <returns></returns>
         public static IEnumerable allocAdd<TSource>(this IEnumerable<TSource> source, TSource addition) {
-            foreach (var t in source) {
+            foreach (var t in source)
                 yield return t;
-            }
             yield return addition;
         }
     }
