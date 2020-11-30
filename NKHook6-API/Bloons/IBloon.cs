@@ -32,12 +32,12 @@ namespace NKHook6.API.Bloons
         /// Gets the max bloon health
         /// </summary>
         /// <returns>The max health</returns>
-        int getMaxHealth();
+        float getMaxHealth();
         /// <summary>
         /// Gets the leak damage of the bloon
         /// </summary>
         /// <returns>The leak damage</returns>
-        int getLeakDamage();
+        float getLeakDamage();
         /// <summary>
         /// Returns true if the bloon cannot be popped.
         /// </summary>

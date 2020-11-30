@@ -44,12 +44,12 @@ namespace NKHook6.API.Registry
             throw new System.NotImplementedException();
         }
 
-        public int getLeakDamage()
+        public float getLeakDamage()
         {
             throw new System.NotImplementedException();
         }
 
-        public int getMaxHealth()
+        public float getMaxHealth()
         {
             throw new System.NotImplementedException();
         }
