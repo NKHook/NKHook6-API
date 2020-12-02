@@ -6,20 +6,20 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
-        public class DamagedEvent : EventBaseCancellable
+        public class DamagedEvent : EventBaseCancellable, BloonEvent
         {
-            public IBloonEntity bloon;
-            public float damageTaken { get; set; }
-            public string[] damageTypes { get; set; }
-            public IProjectileEntity projectile { get; set; }
-            public bool distrubuteToChildren { get; set; }
-            public bool overrideDistributeBlocker { get; set; }
-            public bool createEffect { get; set; }
-            public ITowerEntity tower { get; set; }
-            public bool canDestroyProjectile { get; set; }
-            public string[] ignoreImmunityForBloonTypes { get; set; }
-            public bool ignoreNonTargetables { get; set; }
-            public bool blockSpawnChildren { get; set; }
+            private IBloonEntity bloon;
+            private float damageTaken { get; set; }
+            private string[] damageTypes { get; set; }
+            private IProjectileEntity projectile { get; set; }
+            private bool distrubuteToChildren { get; set; }
+            private bool overrideDistributeBlocker { get; set; }
+            private bool createEffect { get; set; }
+            private ITowerEntity tower { get; set; }
+            private bool canDestroyProjectile { get; set; }
+            private string[] ignoreImmunityForBloonTypes { get; set; }
+            private bool ignoreNonTargetables { get; set; }
+            private bool blockSpawnChildren { get; set; }
 
             public DamagedEvent(IBloonEntity bloon, float totalAmount, string[] types, IProjectileEntity projectile,
             bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, ITowerEntity tower,
@@ -38,6 +38,11 @@ namespace NKHook6.API.Events._Bloons
                 this.ignoreImmunityForBloonTypes = ignoreImmunityForBloonTypes;
                 this.ignoreNonTargetables = ignoreNonTargetable;
                 this.blockSpawnChildren = blockSpawnChildren;
+            }
+
+            public IBloonEntity getBloon()
+            {
+                return this.bloon;
             }
         }
     }

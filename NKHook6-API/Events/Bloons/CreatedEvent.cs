@@ -4,13 +4,18 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
-        public class CreatedEvent : EventBase
+        public class CreatedEvent : EventBase, BloonEvent
         {
-            public IBloonEntity bloon;
+            private IBloonEntity bloon;
 
             public CreatedEvent(IBloonEntity bloon) : base("BloonCreatedEvent")
             {
                 this.bloon = bloon;
+            }
+
+            public IBloonEntity getBloon()
+            {
+                return this.bloon;
             }
         }
     }
