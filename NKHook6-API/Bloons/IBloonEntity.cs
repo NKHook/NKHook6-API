@@ -23,5 +23,10 @@ namespace NKHook6.API.Bloons
         /// </summary>
         /// <returns>The position of the bloon</returns>
         float[] getPosition();
+        /// <summary>
+        /// Gets the bloon's rotation
+        /// </summary>
+        /// <returns></returns>
+        float getRotation();
     }
 }
