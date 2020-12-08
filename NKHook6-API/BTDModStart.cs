@@ -1,4 +1,4 @@
-﻿namespace NKHook6_Impl
+﻿namespace NKHook6.API
 {
     public interface BTDModStart
     {
