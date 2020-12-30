@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Bloons\IBloon.cs" />
     <Compile Include="Bloons\IBloonEntity.cs" />
+    <Compile Include="BTDModStart.cs" />
+    <Compile Include="Events\Bloons\BloonEvent.cs" />
     <Compile Include="Events\Bloons\CreatedEvent.cs" />
     <Compile Include="Events\Bloons\DamagedEvent.cs" />
     <Compile Include="Events\Bloons\DeletedEvent.cs" />

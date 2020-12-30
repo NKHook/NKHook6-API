@@ -32,7 +32,6 @@ namespace NKHook6.API.Game
         /// End the game and have all players see the lose screen
         /// </summary>
         void lose();
-
         /// <summary>
         /// Gets the map of the game instance
         /// </summary>
