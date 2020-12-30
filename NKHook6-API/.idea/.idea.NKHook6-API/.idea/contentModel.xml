@@ -9,8 +9,10 @@
         <e p="IBloon.cs" t="Include" />
         <e p="IBloonEntity.cs" t="Include" />
       </e>
+      <e p="BTDModStart.cs" t="Include" />
       <e p="Events" t="Include">
         <e p="Bloons" t="Include">
+          <e p="BloonEvent.cs" t="Include" />
           <e p="CreatedEvent.cs" t="Include" />
           <e p="DamagedEvent.cs" t="Include" />
           <e p="DeletedEvent.cs" t="Include" />
@@ -78,6 +80,7 @@
       </e>
       <e p="Registry" t="Include">
         <e p="BloonRegistry.cs" t="Include" />
+        <e p="MapRegistry.cs" t="Include" />
         <e p="Registry.cs" t="Include" />
         <e p="TowerRegistry.cs" t="Include" />
       </e>

@@ -2,7 +2,7 @@
 
 namespace NKHook6.API.Registry
 {
-    class BloonRegistry : Registry<IBloon>
+    public class BloonRegistry : Registry<IBloon>
     {
         public static BloonRegistry instance = new BloonRegistry();
         public static BloonRegistry operator +(BloonRegistry inst, IBloon bloon) => (BloonRegistry)inst.register(bloon.getType(), bloon);
