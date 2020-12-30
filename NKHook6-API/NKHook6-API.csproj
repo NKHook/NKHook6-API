@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,9 +83,11 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Game\IGameInstance.cs" />
     <Compile Include="Game\IPlayer.cs" />
-    <Compile Include="Game\Map\IMap.cs" />
-    <Compile Include="Game\Map\IMapObject.cs" />
-    <Compile Include="Game\Map\IPath.cs" />
+    <Compile Include="Map\Area.cs" />
+    <Compile Include="Map\IMap.cs" />
+    <Compile Include="Map\Path.cs" />
+    <Compile Include="Map\Point.cs" />
+    <Compile Include="Map\Polygon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry\BloonRegistry.cs" />
     <Compile Include="Towers\ITowerEntity.cs" />

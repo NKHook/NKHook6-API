@@ -1,4 +1,4 @@
-﻿using NKHook6.API.Game.Map;
+﻿using NKHook6.API.Registry;
 
 namespace NKHook6.API.Game
 {
