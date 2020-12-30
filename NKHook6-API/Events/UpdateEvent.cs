@@ -2,9 +2,6 @@
 {
     public class UpdateEvent : EventBase
     {
-        public UpdateEvent() : base("UpdateEvent")
-        {
-            
-        }
+        public UpdateEvent() : base("UpdateEvent") { }
     }
 }

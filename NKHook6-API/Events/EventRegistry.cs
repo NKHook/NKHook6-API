@@ -7,13 +7,7 @@ namespace NKHook6.API.Events
     public class EventRegistry : Registry<List<MethodInfo>>
     {
         //Compat for old mods
-        public static EventRegistry subscriber
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static EventRegistry subscriber => instance;
         public static EventRegistry instance;
         internal EventRegistry() : base()
         {
@@ -72,39 +66,29 @@ namespace NKHook6.API.Events
             createEvent("FastForwardToggleEvent");*/
         }
 
-        public void createEvent(string eventName)
-        {
-            register(eventName, new List<MethodInfo>());
-        }
+        public void createEvent(string eventName) => register(eventName, new List<MethodInfo>());
 
-        
+
         public void listen(Type toSubscribe)
         {
             foreach(MethodInfo method in toSubscribe.GetMethods())
-            {
                 if (method.IsStatic)
-                {
                     foreach (Attribute attrib in method.GetCustomAttributes())
-                    {
                         if(attrib is EventAttribute)
                         {
                             bool registered = false;
                             EventAttribute eventAttrib = (EventAttribute)attrib;
                             foreach(string currentEventName in getIDs())
-                            {
                                 if (currentEventName == eventAttrib.eventName)
                                 {
                                     getItem(currentEventName).Add(method);
                                     registered = true;
                                     continue;
                                 }
-                            }
+
                             if (!registered)
                                 throw new UnknownEventException(eventAttrib.eventName);
                         }
-                    }
-                }
-            }
         }
         public void dispatchEvent<T>(ref T e) where T : EventBase
         {
@@ -115,20 +99,14 @@ namespace NKHook6.API.Events
                     continue;
                 if (callbacks.Count == 0)
                     continue;
+
                 foreach(MethodInfo callback in callbacks)
-                {
-                    foreach (Attribute attrib in callback.GetCustomAttributes())
+                foreach (Attribute attrib in callback.GetCustomAttributes())
+                    if (attrib is EventAttribute)
                     {
-                        if (attrib is EventAttribute)
-                        {
-                            EventAttribute eventAttrib = (EventAttribute)attrib;
-                            if (eventAttrib.eventName == e.eventName)
-                            {
-                                callback.Invoke(null, new object[] { e });
-                            }
-                        }
+                        EventAttribute eventAttrib = (EventAttribute)attrib;
+                        if (eventAttrib.eventName == e.eventName) callback.Invoke(null, new object[] { e });
                     }
-                }
             }
         }
     }

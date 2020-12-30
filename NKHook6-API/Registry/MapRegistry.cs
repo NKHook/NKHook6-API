@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NKHook6.API.Game;
 using NKHook6.API.Map;
 
@@ -21,11 +22,11 @@ namespace NKHook6.API.Registry {
             throw new System.NotImplementedException();
         }
 
-        public Area[] getAreas() {
+        public IEnumerable<Area> getAreas() {
             throw new System.NotImplementedException();
         }
 
-        public Path[] getPaths() {
+        public IEnumerable<Path> getPaths() {
             throw new System.NotImplementedException();
         }
 
