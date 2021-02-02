@@ -1,3 +1,3 @@
-target_sources(NKHook6-API PRIVATE 
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE 
     "IUpgrade.cs"
 )

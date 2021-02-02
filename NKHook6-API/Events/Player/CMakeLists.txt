@@ -1,4 +1,4 @@
-target_sources(NKHook6-API PRIVATE 
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE 
     "CashChangedEvent.cs"
     "CashGainedEvent.cs"
     "CashLostEvent.cs"
