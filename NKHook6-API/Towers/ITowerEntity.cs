@@ -20,7 +20,7 @@ namespace NKHook6.API.Towers
         /// Gets the tower's XYZ position
         /// </summary>
         /// <returns>The tower's XYZ position</returns>
-        double[] getPosition();
+        float[] getPosition();
         /// <summary>
         /// Returns if a given upgrade was purchased
         /// </summary>
