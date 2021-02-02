@@ -5,3 +5,12 @@ build/
 .idea/
 NKHook6-API/NKHook6-API.sln.DotSettings.user
 NKHook6-API/.idea/.idea.NKHook6-API/.idea/contentModel.xml
+*.vcxproj
+*.vcxproj.filters
+*.sln
+*.csproj
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+Debug/
+x64/
