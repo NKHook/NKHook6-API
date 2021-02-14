@@ -8,6 +8,10 @@ namespace NKHook6.API
 {
     public class Registry<T>
     {
+        public static Registry<T> operator +(Registry<T> inst, T item) => (Registry<T>)inst.register(item.ToString(), item);
+        public static Registry<T> operator -(Registry<T> inst, T item) => (Registry<T>)inst.unregister(item.ToString());
+        public static T operator ^(Registry<T> inst, string item) => inst.getItem(item);
+
         private Dictionary<string, T> registryItems = new Dictionary<string, T>();
         public Registry()
         {
