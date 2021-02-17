@@ -14,7 +14,7 @@ namespace NKHook6.API.Events
         {
             this.cancelled = cancelled;
         }
-        public bool isCancelled()
+        public bool IsCancelled()
         {
             return this.cancelled;
         }

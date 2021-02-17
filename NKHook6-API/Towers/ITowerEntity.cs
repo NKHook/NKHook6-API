@@ -15,18 +15,18 @@ namespace NKHook6.API.Towers
         /// Get the tower details
         /// </summary>
         /// <returns>ITower of the target tower</returns>
-        ITower getTower();
+        ITower GetTower();
         /// <summary>
         /// Gets the tower's XYZ position
         /// </summary>
         /// <returns>The tower's XYZ position</returns>
-        float[] getPosition();
+        float[] GetPosition();
         /// <summary>
         /// Returns if a given upgrade was purchased
         /// </summary>
         /// <param name="path">The upgrade path</param>
         /// <param name="tier">The tier of the upgrade</param>
         /// <returns>If a given upgrade was purchased</returns>
-        bool isUpgradePurchased(int path, int tier);
+        bool IsUpgradePurchased(int path, int tier);
     }
 }

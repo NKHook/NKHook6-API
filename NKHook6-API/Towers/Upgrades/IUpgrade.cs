@@ -15,16 +15,16 @@ namespace NKHook6.API.Towers.Upgrades
         /// Get the cost of the upgrade
         /// </summary>
         /// <returns>The cost of the upgrade</returns>
-        double getCost();
+        double GetCost();
         /// <summary>
         /// Get the name of the upgrade (Non localized)
         /// </summary>
         /// <returns>The name of the upgrade</returns>
-        string getName();
+        string GetName();
         /// <summary>
         /// Get the description of the upgrade
         /// </summary>
         /// <returns>The upgrade description</returns>
-        string getDescription();
+        string GetDescription();
     }
 }

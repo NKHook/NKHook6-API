@@ -7,21 +7,21 @@ namespace NKHook6.API.Game {
         /// Gets the name of the Map.
         /// </summary>
         /// <returns>string containing Map Name</returns>
-        string getMapName();
+        string GetMapName();
         /// <summary>
         /// Gets all Areas in the Map.
         /// </summary>
         /// <returns>IEnumerable&lt;Area&gt; containing All Areas</returns>
-        IEnumerable<Area> getAreas();
+        IEnumerable<Area> GetAreas();
         /// <summary>
         /// Gets all Paths in the Map.
         /// </summary>
         /// <returns>IEnumerable&lt;Path&gt; containing All Paths</returns>
-        IEnumerable<Path> getPaths();
+        IEnumerable<Path> GetPaths();
         /// <summary>
         /// Gets the PathSplitter in the Map.
         /// </summary>
         /// <returns>PathSplitter with all information with how the Map will use the Paths</returns>
-        PathSplitter getPathSplitter();
+        PathSplitter GetPathSplitter();
     }
 }

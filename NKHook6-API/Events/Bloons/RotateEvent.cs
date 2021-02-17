@@ -15,7 +15,7 @@ namespace NKHook6.API.Events._Bloons
                 this.rotation = rotation;
             }
 
-            public IBloonEntity getBloon()
+            public IBloonEntity GetBloon()
             {
                 return this.bloon;
             }

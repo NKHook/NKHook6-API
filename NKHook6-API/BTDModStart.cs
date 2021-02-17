@@ -2,6 +2,6 @@
 {
     public interface BTDModStart
     {
-        void onModLoaded();
+        void OnModLoaded();
     }
 }

@@ -14,62 +14,62 @@ namespace NKHook6.API.Events
             instance = this;
 
             //Unity
-            createEvent("UpdateEvent"); //Updated
-            createEvent("KeyPressEvent"); //Updated
-            createEvent("KeyHeldEvent"); //Updated
-            createEvent("KeyReleaseEvent"); //Updated
+            CreateEvent("UpdateEvent"); //Updated
+            CreateEvent("KeyPressEvent"); //Updated
+            CreateEvent("KeyHeldEvent"); //Updated
+            CreateEvent("KeyReleaseEvent"); //Updated
 
             //Bloons
-            createEvent("BloonCreatedEvent"); //Updated
-            createEvent("BloonDamagedEvent"); //Updated
-            createEvent("BloonLeakedEvent"); //Updated
-            createEvent("BloonDeletedEvent"); //Updated
-            createEvent("BloonMoveEvent"); //Not possible yet, gotta do more investigation
-            createEvent("BloonRotateEvent"); //Updated
+            CreateEvent("BloonCreatedEvent"); //Updated
+            CreateEvent("BloonDamagedEvent"); //Updated
+            CreateEvent("BloonLeakedEvent"); //Updated
+            CreateEvent("BloonDeletedEvent"); //Updated
+            CreateEvent("BloonMoveEvent"); //Not possible yet, gotta do more investigation
+            CreateEvent("BloonRotateEvent"); //Updated
 
             //Towers
-            createEvent("TowerCreatedEvent"); //Updated
-            createEvent("TowerDeletedEvent"); //Updated
-            createEvent("TowerSoldEvent"); //Updated
-            createEvent("TowerSelectedEvent"); //Updated
-            createEvent("TowerDeselectedEvent"); //Updated
-            createEvent("TowerUpgradeEvent"); //Updated
+            CreateEvent("TowerCreatedEvent"); //Updated
+            CreateEvent("TowerDeletedEvent"); //Updated
+            CreateEvent("TowerSoldEvent"); //Updated
+            CreateEvent("TowerSelectedEvent"); //Updated
+            CreateEvent("TowerDeselectedEvent"); //Updated
+            CreateEvent("TowerUpgradeEvent"); //Updated
 
             //Player
-            createEvent("CashChangedEvent"); //Updated
-            createEvent("CashLostEvent"); //Updated
-            createEvent("CashGainedEvent"); //Updated
-            createEvent("HealthChangedEvent");
-            createEvent("HealthLostEvent");
-            createEvent("HealthGainedEvent");
+            CreateEvent("CashChangedEvent"); //Updated
+            CreateEvent("CashLostEvent"); //Updated
+            CreateEvent("CashGainedEvent"); //Updated
+            CreateEvent("HealthChangedEvent");
+            CreateEvent("HealthLostEvent");
+            CreateEvent("HealthGainedEvent");
 
             //Weapons
-            createEvent("WeaponCreatedEvent"); //Updated
-            createEvent("WeaponDeletedEvent"); //Updated
+            CreateEvent("WeaponCreatedEvent"); //Updated
+            CreateEvent("WeaponDeletedEvent"); //Updated
 
             //Game events
-            createEvent("VictoryEvent"); //Updated
-            createEvent("StartMatchEvent");
-            createEvent("RoundStartEvent"); //Updated
-            createEvent("RoundEndEvent"); //Updated
-            createEvent("DefeatedEvent"); //Updated
+            CreateEvent("VictoryEvent"); //Updated
+            CreateEvent("StartMatchEvent");
+            CreateEvent("RoundStartEvent"); //Updated
+            CreateEvent("RoundEndEvent"); //Updated
+            CreateEvent("DefeatedEvent"); //Updated
 
             //Projectiles
-            createEvent("ProjectileCreatedEvent");
-            createEvent("ProjectileDeletedEvent");
-            //createEvent("ProjectileModelChangedEvent");
+            CreateEvent("ProjectileCreatedEvent");
+            CreateEvent("ProjectileDeletedEvent");
+            //CreateEvent("ProjectileModelChangedEvent");
 
             //TODO:
-            /*createEvent("HealthChangedEvent");
-            createEvent("HealthLostEvent");
-            createEvent("HealthGainedEvent");
-            createEvent("FastForwardToggleEvent");*/
+            /*CreateEvent("HealthChangedEvent");
+            CreateEvent("HealthLostEvent");
+            CreateEvent("HealthGainedEvent");
+            CreateEvent("FastForwardToggleEvent");*/
         }
 
-        public void createEvent(string eventName) => register(eventName, new List<MethodInfo>());
+        public void CreateEvent(string eventName) => register(eventName, new List<MethodInfo>());
 
 
-        public void listen(Type toSubscribe)
+        public void Listen(Type toSubscribe)
         {
             foreach(MethodInfo method in toSubscribe.GetMethods())
                 if (method.IsStatic)
@@ -90,7 +90,7 @@ namespace NKHook6.API.Events
                                 throw new UnknownEventException(eventAttrib.eventName);
                         }
         }
-        public void dispatchEvent<T>(ref T e) where T : EventBase
+        public void DispatchEvent<T>(ref T e) where T : EventBase
         {
             foreach (string name in getIDs())
             {

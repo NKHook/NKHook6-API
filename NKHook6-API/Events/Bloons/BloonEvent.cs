@@ -4,6 +4,6 @@ namespace NKHook6.API.Events._Bloons
 {
     public interface BloonEvent
     {
-        IBloonEntity getBloon();
+        IBloonEntity GetBloon();
     }
 }

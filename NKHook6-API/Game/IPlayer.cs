@@ -12,11 +12,11 @@ namespace NKHook6.API.Game
         /// Get the player's cash
         /// </summary>
         /// <returns>The player's cash</returns>
-        double getCash();
+        double GetCash();
         /// <summary>
         /// Set the player's cash
         /// </summary>
         /// <param name="value">The value to set the cash</param>
-        void setCash(double value);
+        void SetCash(double value);
     }
 }

@@ -12,21 +12,21 @@ namespace NKHook6.API.Bloons
         /// Gets the IBloon type of the Bloon
         /// </summary>
         /// <returns>The IBloon</returns>
-        IBloon getType();
+        IBloon GetType();
         /// <summary>
         /// Gets the bloon's path progress
         /// </summary>
         /// <returns></returns>
-        float getProgress();
+        float GetProgress();
         /// <summary>
         /// Get the 3d position of the bloon in XYZ format
         /// </summary>
         /// <returns>The position of the bloon</returns>
-        float[] getPosition();
+        float[] GetPosition();
         /// <summary>
         /// Gets the bloon's rotation
         /// </summary>
         /// <returns></returns>
-        float getRotation();
+        float GetRotation();
     }
 }

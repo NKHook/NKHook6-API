@@ -22,7 +22,7 @@ namespace NKHook6.API
         /// Registers a new item into the target registry
         /// </summary>
         /// <param name="item">Item to register</param>
-        public virtual Registry<T> register(string ID, T item)
+        public virtual Registry<T> Register(string ID, T item)
         {
             if (!registryItems.ContainsKey(ID))
             {
@@ -36,7 +36,7 @@ namespace NKHook6.API
         /// Unregisters something from the registry. WARNING: Probably super duper unsafe for certain things
         /// </summary>
         /// <param name="ID"></param>
-        public virtual Registry<T> unregister(string ID)
+        public virtual Registry<T> Unregister(string ID)
         {
             foreach(string key in registryItems.Keys)
             {
@@ -54,7 +54,7 @@ namespace NKHook6.API
         /// </summary>
         /// <param name="ID">The ID of the item to retrieve</param>
         /// <returns>The registry item</returns>
-        public virtual T getItem(string ID)
+        public virtual T GetItem(string ID)
         {
             return registryItems[ID];
         }
@@ -63,7 +63,7 @@ namespace NKHook6.API
         /// Gets all items in the registry
         /// </summary>
         /// <returns>All items known to the registry</returns>
-        public virtual T[] getItems()
+        public virtual T[] GetItems()
         {
             return registryItems.Values.ToArray();
         }
@@ -74,7 +74,7 @@ namespace NKHook6.API
         /// Gets all known IDs of the Registry
         /// </summary>
         /// <returns>All known Registry IDs</returns>
-        public virtual string[] getIDs()
+        public virtual string[] GetIDs()
         {
             return registryItems.Keys.ToArray();
         }
