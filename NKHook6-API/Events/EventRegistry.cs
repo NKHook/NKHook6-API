@@ -66,7 +66,7 @@ namespace NKHook6.API.Events
             CreateEvent("FastForwardToggleEvent");*/
         }
 
-        public void CreateEvent(string eventName) => register(eventName, new List<MethodInfo>());
+        public void CreateEvent(string eventName) => Register(eventName, new List<MethodInfo>());
 
 
         public void Listen(Type toSubscribe)
@@ -78,10 +78,10 @@ namespace NKHook6.API.Events
                         {
                             bool registered = false;
                             EventAttribute eventAttrib = (EventAttribute)attrib;
-                            foreach(string currentEventName in getIDs())
+                            foreach(string currentEventName in GetIDs())
                                 if (currentEventName == eventAttrib.eventName)
                                 {
-                                    getItem(currentEventName).Add(method);
+                                    GetItem(currentEventName).Add(method);
                                     registered = true;
                                     continue;
                                 }
@@ -92,9 +92,9 @@ namespace NKHook6.API.Events
         }
         public void DispatchEvent<T>(ref T e) where T : EventBase
         {
-            foreach (string name in getIDs())
+            foreach (string name in GetIDs())
             {
-                List<MethodInfo> callbacks = getItem(name);
+                List<MethodInfo> callbacks = GetItem(name);
                 if (callbacks == null)
                     continue;
                 if (callbacks.Count == 0)

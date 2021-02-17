@@ -5,9 +5,9 @@ using NKHook6.API.Map;
 namespace NKHook6.API.Registry {
     public class MapRegistry : Registry<IMap> {
         public static MapRegistry instance = new MapRegistry();
-        public static MapRegistry operator +(MapRegistry inst, IMap map) => (MapRegistry)inst.register(map.getMapName(), map);
-        public static MapRegistry operator -(MapRegistry inst, IMap map) => (MapRegistry)inst.unregister(map.getMapName());
-        public static IMap operator ^(MapRegistry inst, string tower) => inst.getItem(tower);
+        public static MapRegistry operator +(MapRegistry inst, IMap map) => (MapRegistry)inst.Register(map.GetMapName(), map);
+        public static MapRegistry operator -(MapRegistry inst, IMap map) => (MapRegistry)inst.Unregister(map.GetMapName());
+        public static IMap operator ^(MapRegistry inst, string tower) => inst.GetItem(tower);
 
         public void Test()
         {
