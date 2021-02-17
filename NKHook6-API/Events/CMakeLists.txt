@@ -2,7 +2,6 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     "Event.cs"
     "EventAttribute.cs"
     "EventBaseCancellable.cs"
-    "EventRegistry.cs"
     "KeyEvent.cs"
     "UnknownEventException.cs"
     "UpdateEvent.cs"

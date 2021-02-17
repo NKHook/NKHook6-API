@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using NKHook6.API.Events;
 
-namespace NKHook6.API.Events
+namespace NKHook6.API.Registry
 {
     public class EventRegistry : Registry<List<MethodInfo>>
     {
