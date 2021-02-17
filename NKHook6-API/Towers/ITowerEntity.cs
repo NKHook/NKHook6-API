@@ -12,10 +12,10 @@ namespace NKHook6.API.Towers
     public interface ITowerEntity
     {
         /// <summary>
-        /// Get the tower details
+        /// Get the ITower of the target tower
         /// </summary>
-        /// <returns>ITower of the target tower</returns>
-        ITower GetTower();
+        /// <returns>The ITower</returns>
+        ITower GetType();
         /// <summary>
         /// Gets the tower's XYZ position
         /// </summary>
