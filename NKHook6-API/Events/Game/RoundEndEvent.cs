@@ -2,7 +2,7 @@
 
 namespace NKHook6.API.Events._Game
 {
-    public partial class SimulationEvents
+    public partial class GameEvents
     {
         public class RoundEndEvent : EventBaseCancellable
         {
