@@ -134,52 +134,32 @@ namespace NKHook6.API.Registry
         }
         public void DispatchEvent<T>(ref T e) where T : EventBase
         {
-            foreach (string name in GetIDs())
+            //Get the event's class
+            Type eventClass = e.GetType();
+            //Loop through the attributes
+            foreach(Attribute classAttrib in eventClass.GetCustomAttributes())
             {
-                List<MethodInfo> callbacks = GetItem(name);
-                if (callbacks == null)
+                //if the attribute is an event header
+                if(classAttrib is EventHeader)
                 {
-                    continue;
-                }
-                if (callbacks.Count == 0)
-                {
-                    continue;
-                }
-                foreach(MethodInfo callback in callbacks)
-                {
-                    foreach (Attribute attrib in callback.GetCustomAttributes())
+                    EventHeader header = classAttrib as EventHeader;
+                    //Get the callbacks
+                    List<MethodInfo> callbacks = GetItem(header.eventName);
+                    //Check that the callbacks are null/bad
+                    if (callbacks == null)
                     {
-                        if (attrib is Event)
-                        {
-                            ParameterInfo param = callback.GetParameters()[0];
-                            if(param != null)
-                            {
-                                Type paramType = param.ParameterType;
-                                if(paramType.IsSubclassOf(typeof(EventBase)))
-                                {
-                                    foreach(Attribute classAttrib in paramType.GetCustomAttributes())
-                                    {
-                                        if(classAttrib is EventHeader)
-                                        {
-                                            EventHeader header = classAttrib as EventHeader;
-                                            if (header.eventName == e.eventName)
-                                            {
-                                                callback.Invoke(null, new object[] { e });
-                                            }
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    throw new Exception("Listen call checks failed! Invalid event parameter type! Must be an EventBase!");
-                                }
-                            }
-                            else
-                            {
-                                throw new Exception("Listen call checks failed! The event callback doesn't have any valid paramters!");
-                            }
-                        }
+                        continue;
                     }
+                    if (callbacks.Count == 0)
+                    {
+                        continue;
+                    }
+                    //Call the callbacks
+                    foreach(MethodInfo callback in callbacks)
+                    {
+                        callback.Invoke(null, new object[] { e });
+                    }
+                    return;
                 }
             }
         }
