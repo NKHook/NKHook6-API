@@ -6,13 +6,14 @@ namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{
+        [EventInfo("HealthChangedEvent")]
 		public class HealthChangedEvent : EventBaseCancellable
 		{
 			public IGameInstance game;
 			public double oldCash;
 			public double newCash;
 
-			public HealthChangedEvent(IGameInstance game, double oldCash, double newCash) : base("HealthChangedEvent")
+			public HealthChangedEvent(IGameInstance game, double oldCash, double newCash) : base()
 			{
 				this.game = game;
 				this.oldCash = oldCash;

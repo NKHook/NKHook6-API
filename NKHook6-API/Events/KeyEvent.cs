@@ -4,7 +4,7 @@
     public class KeyEvent : EventBase
     {
         public char key;
-        public KeyEvent(char key, string eventName) : base(eventName)
+        public KeyEvent(char key) : base()
         {
             this.key = key;
         }
@@ -12,14 +12,16 @@
     [EventInfo("KeyPressEvent")]
     public class KeyPressEvent : KeyEvent
     {
-        public KeyPressEvent(char key) : base(key, "KeyPressEvent") { }
+        public KeyPressEvent(char key) : base(key) { }
     }
+    [EventInfo("KeyHeldEvent")]
     public class KeyHeldEvent : KeyEvent
     {
-        public KeyHeldEvent(char key) : base(key, "KeyHeldEvent") { }
+        public KeyHeldEvent(char key) : base(key) { }
     }
+    [EventInfo("KeyReleaseEvent")]
     public class KeyReleaseEvent : KeyEvent
     {
-        public KeyReleaseEvent(char key) : base(key, "KeyReleaseEvent") { }
+        public KeyReleaseEvent(char key) : base(key) { }
     }
 }

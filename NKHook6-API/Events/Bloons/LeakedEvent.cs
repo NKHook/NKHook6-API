@@ -9,7 +9,7 @@ namespace NKHook6.API.Events._Bloons
         {
             private IBloonEntity bloon;
 
-            public LeakedEvent(IBloonEntity bloon) : base("BloonLeakedEvent")
+            public LeakedEvent(IBloonEntity bloon) : base()
             {
                 this.bloon = bloon;
             }
