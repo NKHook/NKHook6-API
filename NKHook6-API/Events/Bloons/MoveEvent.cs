@@ -4,11 +4,12 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
+        [EventInfo("BloonMoveEvent")]
         public class MoveEvent : EventBaseCancellable, BloonEvent
         {
             private IBloonEntity bloon;
 
-            public MoveEvent(IBloonEntity bloon) : base("BloonMoveEvent")
+            public MoveEvent(IBloonEntity bloon) : base()
             {
                 this.bloon = bloon;
             }

@@ -72,24 +72,54 @@ namespace NKHook6.API.Registry
 
         public void Listen(Type toSubscribe)
         {
+            //Loop through the methods in the class to listen
             foreach(MethodInfo method in toSubscribe.GetMethods())
+            {
+                //All event methods *must* be static
                 if (method.IsStatic)
+                {
+                    //Loop through the method attributes
                     foreach (Attribute attrib in method.GetCustomAttributes())
+                    {
+                        //If the attribute is an EventAttribute
                         if(attrib is EventAttribute)
                         {
-                            bool registered = false;
-                            EventAttribute eventAttrib = (EventAttribute)attrib;
-                            foreach(string currentEventName in GetIDs())
-                                if (currentEventName == eventAttrib.eventName)
+                            ParameterInfo param = method.GetParameters()[0];
+                            //Check the param is okay
+                            if(param != null)
+                            {
+                                Type paramType = param.ParameterType;
+                                if(paramType.IsSubclassOf(typeof(EventBase)))
                                 {
-                                    GetItem(currentEventName).Add(method);
-                                    registered = true;
-                                    continue;
+                                    bool registered = false;
+                                    foreach(string currentEventName in GetIDs())
+                                    {
+                                        //Use the dummy instance for the event name
+                                        if (currentEventName == dummyInstance.eventName)
+                                        {
+                                            GetItem(currentEventName).Add(method);
+                                            registered = true;
+                                            continue;
+                                        }
+                                    }
+                                    if (!registered)
+                                    {
+                                        throw new UnknownEventException(dummyInstance.eventName);
+                                    }
                                 }
-
-                            if (!registered)
-                                throw new UnknownEventException(eventAttrib.eventName);
+                                else
+                                {
+                                    throw new Exception("Invalid event parameter type! Must be an EventBase!");
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("The event method doesn't have any valid paramters!");
+                            }
                         }
+                    }
+                }
+            }
         }
         public void DispatchEvent<T>(ref T e) where T : EventBase
         {
@@ -97,17 +127,43 @@ namespace NKHook6.API.Registry
             {
                 List<MethodInfo> callbacks = GetItem(name);
                 if (callbacks == null)
+                {
                     continue;
+                }
                 if (callbacks.Count == 0)
+                {
                     continue;
-
+                }
                 foreach(MethodInfo callback in callbacks)
-                foreach (Attribute attrib in callback.GetCustomAttributes())
-                    if (attrib is EventAttribute)
+                {
+                    foreach (Attribute attrib in callback.GetCustomAttributes())
                     {
-                        EventAttribute eventAttrib = (EventAttribute)attrib;
-                        if (eventAttrib.eventName == e.eventName) callback.Invoke(null, new object[] { e });
+                        if (attrib is EventAttribute)
+                        {
+                            ParameterInfo param = callback.GetParameters()[0];
+                            if(param != null)
+                            {
+                                Type paramType = param.ParameterType;
+                                if(paramType.IsSubclassOf(typeof(EventBase)))
+                                {
+                                    EventBase dummyInstance = (EventBase)Activator.CreateInstance(paramType);
+                                    if (dummyInstance.eventName == e.eventName)
+                                    {
+                                        callback.Invoke(null, new object[] { e });
+                                    }
+                                }
+                                else
+                                {
+                                    throw new Exception("Listen call checks failed! Invalid event parameter type! Must be an EventBase!");
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("Listen call checks failed! The event callback doesn't have any valid paramters!");
+                            }
+                        }
                     }
+                }
             }
         }
     }

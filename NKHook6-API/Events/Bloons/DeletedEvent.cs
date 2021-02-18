@@ -4,11 +4,12 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
+        [EventInfo("BloonDeletedEvent")]
         public class DeletedEvent : EventBaseCancellable, BloonEvent
         {
             private IBloonEntity bloon;
 
-            public DeletedEvent(IBloonEntity bloon) : base("BloonDeletedEvent")
+            public DeletedEvent(IBloonEntity bloon) : base()
             {
                 this.bloon = bloon;
             }

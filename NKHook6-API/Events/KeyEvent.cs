@@ -1,5 +1,6 @@
 ﻿namespace NKHook6.API.Events
 {
+    [EventInfo("KeyEvent")]
     public class KeyEvent : EventBase
     {
         public char key;
@@ -8,6 +9,7 @@
             this.key = key;
         }
     }
+    [EventInfo("KeyPressEvent")]
     public class KeyPressEvent : KeyEvent
     {
         public KeyPressEvent(char key) : base(key, "KeyPressEvent") { }

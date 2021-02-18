@@ -6,6 +6,7 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
+        [EventInfo("BloonDamagedEvent")]
         public class DamagedEvent : EventBaseCancellable, BloonEvent
         {
             private IBloonEntity bloon;
@@ -24,7 +25,7 @@ namespace NKHook6.API.Events._Bloons
             public DamagedEvent(IBloonEntity bloon, float totalAmount, string[] types, IProjectileEntity projectile,
             bool distributeToChildren, bool overrideDistributeBlocker, bool createEffect, ITowerEntity tower,
             bool canDestroyProjectile, string[] ignoreImmunityForBloonTypes, bool ignoreNonTargetable,
-            bool blockSpawnChildren) : base("BloonDamagedEvent")
+            bool blockSpawnChildren) : base()
             {
                 this.bloon = bloon;
                 this.damageTaken = totalAmount;
