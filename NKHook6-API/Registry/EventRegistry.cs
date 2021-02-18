@@ -82,29 +82,40 @@ namespace NKHook6.API.Registry
                     foreach (Attribute attrib in method.GetCustomAttributes())
                     {
                         //If the attribute is an EventAttribute
-                        if(attrib is EventAttribute)
+                        if(attrib is Event)
                         {
                             ParameterInfo param = method.GetParameters()[0];
                             //Check the param is okay
                             if(param != null)
                             {
+                                //Get the param type
                                 Type paramType = param.ParameterType;
+                                //Check if the param is an event
                                 if(paramType.IsSubclassOf(typeof(EventBase)))
                                 {
-                                    bool registered = false;
-                                    foreach(string currentEventName in GetIDs())
+                                    //Get the attributes of the type
+                                    foreach(Attribute classAttrib in paramType.GetCustomAttributes())
                                     {
-                                        //Use the dummy instance for the event name
-                                        if (currentEventName == dummyInstance.eventName)
+                                        //If its an event header
+                                        if(classAttrib is EventHeader)
                                         {
-                                            GetItem(currentEventName).Add(method);
-                                            registered = true;
-                                            continue;
+                                            EventHeader header = classAttrib as EventHeader;
+                                            bool registered = false;
+                                            foreach(string currentEventName in GetIDs())
+                                            {
+                                                //Use the dummy instance for the event name
+                                                if (currentEventName == header.eventName)
+                                                {
+                                                    GetItem(currentEventName).Add(method);
+                                                    registered = true;
+                                                    continue;
+                                                }
+                                            }
+                                            if (!registered)
+                                            {
+                                                throw new UnknownEventException(header.eventName);
+                                            }
                                         }
-                                    }
-                                    if (!registered)
-                                    {
-                                        throw new UnknownEventException(dummyInstance.eventName);
                                     }
                                 }
                                 else
@@ -138,7 +149,7 @@ namespace NKHook6.API.Registry
                 {
                     foreach (Attribute attrib in callback.GetCustomAttributes())
                     {
-                        if (attrib is EventAttribute)
+                        if (attrib is Event)
                         {
                             ParameterInfo param = callback.GetParameters()[0];
                             if(param != null)
@@ -146,10 +157,16 @@ namespace NKHook6.API.Registry
                                 Type paramType = param.ParameterType;
                                 if(paramType.IsSubclassOf(typeof(EventBase)))
                                 {
-                                    EventBase dummyInstance = (EventBase)Activator.CreateInstance(paramType);
-                                    if (dummyInstance.eventName == e.eventName)
+                                    foreach(Attribute classAttrib in paramType.GetCustomAttributes())
                                     {
-                                        callback.Invoke(null, new object[] { e });
+                                        if(classAttrib is EventHeader)
+                                        {
+                                            EventHeader header = classAttrib as EventHeader;
+                                            if (header.eventName == e.eventName)
+                                            {
+                                                callback.Invoke(null, new object[] { e });
+                                            }
+                                        }
                                     }
                                 }
                                 else

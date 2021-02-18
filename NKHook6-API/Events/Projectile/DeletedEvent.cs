@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Projectile
 {
 	public partial class ProjectileEvents
 	{
-        [EventInfo("ProjectileDeletedEvent")]
+        [EventHeader("ProjectileDeletedEvent")]
 		public class DeletedEvent : EventBaseCancellable
 		{
 			public IProjectileEntity projectile;

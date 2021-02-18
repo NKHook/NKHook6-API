@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NKHook6.API.Events
 {
-    [EventInfo("EventBaseCancellable")]
+    [EventHeader("EventBaseCancellable")]
     public class EventBaseCancellable : EventBase
     {
         public bool cancelled;

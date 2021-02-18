@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Game
 {
     public partial class GameEvents
     {
-        [EventInfo("RoundStartEvent")]
+        [EventHeader("RoundStartEvent")]
         public class RoundStartEvent : EventBaseCancellable
         {
             public IGameInstance game;

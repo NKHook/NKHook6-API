@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
-        [EventInfo("BloonCreatedEvent")]
+        [EventHeader("BloonCreatedEvent")]
         public class CreatedEvent : EventBase, BloonEvent
         {
             private IBloonEntity bloon;

@@ -6,7 +6,7 @@ namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{
-        [EventInfo("HealthChangedEvent")]
+        [EventHeader("HealthChangedEvent")]
 		public class HealthChangedEvent : EventBaseCancellable
 		{
 			public IGameInstance game;

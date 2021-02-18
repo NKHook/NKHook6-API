@@ -6,7 +6,7 @@ namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{
-        [EventInfo("CashChangedEvent")]
+        [EventHeader("CashChangedEvent")]
 		public class CashChangedEvent : EventBaseCancellable
 		{
 			public IGameInstance game;

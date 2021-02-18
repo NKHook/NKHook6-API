@@ -1,6 +1,6 @@
 ﻿namespace NKHook6.API.Events
 {
-    [EventInfo("UpdateEvent")]
+    [EventHeader("UpdateEvent")]
     public class UpdateEvent : EventBase
     {
         public UpdateEvent() : base() { }

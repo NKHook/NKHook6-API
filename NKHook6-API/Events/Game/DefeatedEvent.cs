@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Game
 {
     public partial class GameEvents
     {
-        [EventInfo("DefeatedEvent")]
+        [EventHeader("DefeatedEvent")]
         public class DefeatedEvent : EventBaseCancellable
         {
             public IGameInstance game;

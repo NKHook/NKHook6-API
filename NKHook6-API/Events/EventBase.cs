@@ -1,6 +1,6 @@
 ﻿namespace NKHook6.API.Events
 {
-    [EventInfo("EventBase")]
+    [EventHeader("EventBase")]
     public abstract class EventBase
     {
         public string eventName;

@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Towers
 {
 	public partial class TowerEvents
 	{
-        [EventInfo("TowerSelectedEvent")]
+        [EventHeader("TowerSelectedEvent")]
 		public class SelectedEvent : EventBaseCancellable
 		{
 			public ITowerEntity tower;

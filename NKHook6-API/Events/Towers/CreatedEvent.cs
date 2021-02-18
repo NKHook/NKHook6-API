@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Towers
 {
     public partial class TowerEvents
     {
-        [EventInfo("TowerCreatedEvent")]
+        [EventHeader("TowerCreatedEvent")]
         public class CreatedEvent : EventBase
         {
             public ITowerEntity tower;

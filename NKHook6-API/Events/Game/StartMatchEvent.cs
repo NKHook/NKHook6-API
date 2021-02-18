@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Game
 {
     public partial class GameEvents
     {
-        [EventInfo("StartMatchEvent")]
+        [EventHeader("StartMatchEvent")]
         public class StartMatchEvent : EventBase
         {
             public IGameInstance game;

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace NKHook6.API.Events
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
-    public class EventInfo : Attribute
+    public class EventHeader : Attribute
     {
         public string eventName;
-        public EventInfo(string eventName)
+        public EventHeader(string eventName)
         {
             this.eventName = eventName;
         }

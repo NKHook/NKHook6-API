@@ -6,7 +6,7 @@ namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{
-        [EventInfo("HealthGainedEvent")]
+        [EventHeader("HealthGainedEvent")]
 		public class HealthGainedEvent : HealthChangedEvent
 		{
 			public HealthGainedEvent(IGameInstance game, double oldCash, double newCash) : base(game, oldCash, newCash) { }

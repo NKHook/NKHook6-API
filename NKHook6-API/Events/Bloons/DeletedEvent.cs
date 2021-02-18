@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Bloons
 {
     public partial class BloonEvents
     {
-        [EventInfo("BloonDeletedEvent")]
+        [EventHeader("BloonDeletedEvent")]
         public class DeletedEvent : EventBaseCancellable, BloonEvent
         {
             private IBloonEntity bloon;

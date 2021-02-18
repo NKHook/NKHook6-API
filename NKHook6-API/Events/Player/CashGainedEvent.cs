@@ -6,7 +6,7 @@ namespace NKHook6.API.Events._Player
 {
 	public partial class PlayerEvents
 	{
-        [EventInfo("CashGainedEvent")]
+        [EventHeader("CashGainedEvent")]
 		public class CashGainedEvent : CashChangedEvent
 		{
 			public CashGainedEvent(IGameInstance game, double oldCash, double newCash) : base(game, oldCash, newCash) { }

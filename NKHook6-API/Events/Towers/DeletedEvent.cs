@@ -4,7 +4,7 @@ namespace NKHook6.API.Events._Towers
 {
     public partial class TowerEvents
     {
-        [EventInfo("TowerDeletedEvent")]
+        [EventHeader("TowerDeletedEvent")]
         public class DeletedEvent : EventBase
         {
             public ITowerEntity tower;
